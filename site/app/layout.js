@@ -1,5 +1,6 @@
 import './styles.css';
 import './nav-fix.css';
+import CalEmbed from './CalEmbed';
 
 export const metadata = {
   title: 'Michael Jones — Creative Developer',
@@ -9,7 +10,10 @@ export const metadata = {
 export default function Layout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <CalEmbed />
+      </body>
     </html>
   );
 }

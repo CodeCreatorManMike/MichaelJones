@@ -80,7 +80,17 @@ export default function Solutions() {
             <img src={o.desktop} alt={o.title} />
           </picture>
           <p className="solution-copy">{o.copy}</p>
-          <a className="solution-cta" href={`/book/?service=${o.slug}`}>{o.cta}</a>
+          {o.slug === 'discovery-call' ? (
+            <button
+              type="button"
+              className="solution-cta"
+              data-cal-namespace="free-discovery-call"
+              data-cal-link="michael-jones-zxe6yc/free-discovery-call"
+              data-cal-config='{"layout":"month_view"}'
+            >{o.cta}</button>
+          ) : (
+            <a className="solution-cta" href={`/book/?service=${o.slug}`}>{o.cta}</a>
+          )}
         </section>
       ))}
 

@@ -66,7 +66,8 @@ const projectImages=[
  '/projects/Kit-Bin_guides_dark.png','/projects/Kit-Bin_guides_light.png','/projects/Kit-Bin_home_dark.png','/projects/Kit-Bin_home_light.png','/projects/Kit-Bin_tool_page_dark.png','/projects/Kit-Bin_tool_page_light.png',
  '/projects/PawPackPantry_Home_Page.png','/projects/PawPackPantry_Home_Place_An_Order.png','/projects/PawPackPantry_Home_Widgets.png','/projects/PawPackPantry_Latest_News.png','/projects/PawPackPantry_Menu_Page.png','/projects/PawPackPantry_StreetSmart.png','/projects/PawPackPantry_Testimonies.png',
  '/projects/RecyclJunction_Home_Page.png','/projects/RecyclJunction_Home_Page_fourth.png','/projects/RecyclJunction_Home_Page_second.png','/projects/RecyclJunction_Home_Page_third.png',
- '/projects/THE_WALL_Intro.png','/projects/the_WALL_MAIN.png'
+ '/projects/THE_WALL_Intro.png','/projects/the_WALL_MAIN.png',
+ '/projects/python_blackjack_project.jpg'
 ];
 
 const rotateWords=['SYSTEM.','APP.','SOLUTION.','PROJECT.','PLATFORM.','PRODUCT.'];
