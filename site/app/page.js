@@ -1,5 +1,6 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
+import AsciiDonut from './AsciiDonut';
 
 const experience=[
  {company:'INDIDA CONSULTING',role:'Creative Director / IT Management / AI Engineer',summary:'Creative, technical and AI-focused work spanning product direction, systems and implementation across a growing consultancy practice.',tags:['CREATIVE DIRECTION','AI ENGINEERING','IT MANAGEMENT'],icon:'/logos/indida-consulting.jpg'},
@@ -69,7 +70,8 @@ const projectImages=[
  '/projects/THE_WALL_Intro.png','/projects/the_WALL_MAIN.png',
  '/projects/python_blackjack_project.jpg','/projects/python_learning_platform.jpg','/projects/python_learning_platform_2.jpg','/projects/python_learning_platform_3.jpg',
  '/projects/bruse_firmware.jpg','/projects/computer_in_progress.jpg','/projects/computer_in_progress_2.jpg',
- '/projects/gravity_github_project.png','/projects/gravity_hardware_ui_mockup.png','/projects/gravity_in_progress.png','/projects/gravity_mockup.png'
+ '/projects/gravity_github_project.png','/projects/gravity_hardware_ui_mockup.png','/projects/gravity_in_progress.png','/projects/gravity_mockup.png',
+ '/projects/personal_microsite.png','/projects/personal_microsite_2.png','/projects/personal_microsite_3.png'
 ];
 
 const rotateWords=['SYSTEM.','APP.','SOLUTION.','PROJECT.','PLATFORM.','PRODUCT.'];
@@ -197,6 +199,7 @@ export default function Page(){
   <section className="ticker"><div>AI ENGINEERING +++ FULL-STACK DEVELOPMENT +++ MOBILE PRODUCTS +++ DEX AUTOMATION +++ HARDWARE PROTOTYPING +++ GTM SYSTEMS +++ CI/CD +++ </div></section>
   <section className="solutions-teaser reveal-group"><div className="solutions-teaser-inner"><p className="eyebrow">[ FOR CLIENTS ]</p><h2>NEED SOMETHING<br/><em>BUILT?</em></h2><p>Free discovery calls, 6-week website builds, AI opportunity audits and product development — see the offerings and book straight in.</p><a href="/solutions" className="solutions-cta">VIEW SOLUTIONS ↗</a></div></section>
   <section id="projects" className="section reveal-group"><div className="section-head"><span>01 / FLAGSHIP PROJECTS</span><span>DESIGNED + BUILT</span></div><div className="project-grid">{flagship.map((p,i)=><article key={p.title}>{p.icon&&<img className="card-icon" src={p.icon} alt="" />}<span className="project-no">P/{String(i+1).padStart(2,'0')}</span><p>{p.kind}</p><h2>{p.title}</h2><p className="copy">{p.copy}</p><div className="tags">{p.tags.map(t=><span key={t}>{t}</span>)}</div>{p.links&&p.links.length>0&&<div className="project-links">{p.links.map(l=><a key={l.href} className={'project-link '+l.type} href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>)}</div>}<div className="ascii-mark">{['▓▒░','╱╲','◢◤','[<>]','((( )))','+ XP'][i]}</div></article>)}</div></section>
+  <section className="ascii-donut-section"><AsciiDonut/></section>
   <section className="section systems reveal-group"><div className="section-head"><span>02 / TECHNICAL ANALYSIS + DEX</span><span>NEXTHINK · POWERSHELL · PYTHON · AZURE</span></div><p className="lead">Enterprise-scale automation, diagnostics, ITSM integrations, AI adoption and more than 100 internal and customer-facing knowledge articles.</p><SystemGrid items={enterprise}/></section>
   <section className="section systems reveal-group"><div className="section-head"><span>03 / GTM ENGINEERING</span><span>AI-FIRST OUTBOUND SYSTEMS</span></div><p className="lead">Built and scaled demand-generation infrastructure using Clay, Lemlist, n8n and Python, supporting 16+ qualified enterprise meetings per month.</p><SystemGrid items={gtm}/></section>
   <section className="section reveal-group"><div className="section-head"><span>04 / CLIENT + PLATFORM BUILDS</span><span>LIVE DIGITAL PRODUCTS</span></div><SystemGrid items={clients}/></section>
