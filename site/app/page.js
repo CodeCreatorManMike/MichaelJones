@@ -87,6 +87,8 @@ function ProjectMouseTrail(){
  useEffect(()=>{
   const el=zoneRef.current;
   if(!el)return;
+  const hero=el.closest('.hero');
+  if(!hero)return;
   if(typeof window!=='undefined' && window.matchMedia && window.matchMedia('(pointer: coarse)').matches)return;
   const onMove=(e)=>{
    const now=performance.now();
@@ -102,8 +104,8 @@ function ProjectMouseTrail(){
    setItems(prev=>[...prev.slice(-13),item]);
    setTimeout(()=>{setItems(prev=>prev.filter(it=>it.id!==id))},950);
   };
-  el.addEventListener('mousemove',onMove);
-  return()=>el.removeEventListener('mousemove',onMove);
+  hero.addEventListener('mousemove',onMove);
+  return()=>hero.removeEventListener('mousemove',onMove);
  },[]);
  return <div ref={zoneRef} className="mouse-trail-zone">
   {items.map(it=><div key={it.id} className="trail-image" style={{left:it.x,top:it.y,'--rot':it.rot+'deg'}}><img src={it.img} alt="" draggable={false}/></div>)}
