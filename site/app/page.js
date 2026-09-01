@@ -91,6 +91,17 @@ function ProjectMouseTrail(){
  const lastSpawn=useRef(0);
  const lastImg=useRef(null);
  const idRef=useRef(0);
+ const readyRef=useRef([]);
+ useEffect(()=>{
+  let cancelled=false;
+  const shuffled=[...projectImages].sort(()=>Math.random()-0.5);
+  shuffled.forEach(src=>{
+   const img=new window.Image();
+   img.onload=()=>{if(!cancelled)readyRef.current=[...readyRef.current,src]};
+   img.src=src;
+  });
+  return()=>{cancelled=true};
+ },[]);
  useEffect(()=>{
   const el=zoneRef.current;
   if(!el)return;
@@ -100,10 +111,12 @@ function ProjectMouseTrail(){
   const onMove=(e)=>{
    const now=performance.now();
    if(now-lastSpawn.current<100)return;
+   const ready=readyRef.current;
+   if(ready.length===0)return;
    lastSpawn.current=now;
    const rect=el.getBoundingClientRect();
-   let img=projectImages[Math.floor(Math.random()*projectImages.length)];
-   if(projectImages.length>1){while(img===lastImg.current){img=projectImages[Math.floor(Math.random()*projectImages.length)]}}
+   let img=ready[Math.floor(Math.random()*ready.length)];
+   if(ready.length>1){while(img===lastImg.current){img=ready[Math.floor(Math.random()*ready.length)]}}
    lastImg.current=img;
    const id=++idRef.current;
    const rot=(Math.random()*12-6).toFixed(1);
@@ -171,9 +184,6 @@ function Terminal(){
 
 export default function Page(){
  const[time,setTime]=useState('');useEffect(()=>{const t=setInterval(()=>setTime(new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'})),1000);return()=>clearInterval(t)},[]);
- useEffect(()=>{
-  projectImages.forEach(src=>{const img=new window.Image();img.src=src});
- },[]);
  useEffect(()=>{
   const els=document.querySelectorAll('.reveal-group');
   if(!els.length)return;
