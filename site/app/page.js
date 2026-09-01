@@ -12,7 +12,7 @@ const flagship=[
  {title:'GRAVITY',kind:'AI HARDWARE / FULL STACK',copy:'AI-powered accountability device built around an ESP32-S3, circular display and environmental sensors. FastAPI + PostgreSQL backend, pgvector + sentence-transformers memory, a provider-agnostic Claude/Groq/Ollama layer, self-hosted SearXNG research and a multi-agent "Hermes" VPS development workflow using GitHub Projects as a shared task board. Full hardware plan mapped toward a custom PCB via JLCPCB.',tags:['ESP32-S3','FASTAPI','POSTGRESQL','PGVECTOR','OLLAMA'],icon:'/logos/gravity.png',links:[{type:'repo',href:'https://github.com/CodeCreatorManMike/GRAVITY-OS',label:'VIEW REPO ↗'}]},
  {title:'NKANDA',kind:'MOBILE / RAG / TRAVEL',copy:'AI-powered visa and travel admin app that digitises paperwork end-to-end. A RAG system trained on official government documentation reviews submitted information against the source rules, recommends corrections and flags missing information before submission.',tags:['SWIFTUI','RAG','OCR','AI','PRODUCT DESIGN'],icon:'/logos/nkanda.png',links:[{type:'repo',href:'https://github.com/CodeCreatorManMike/Nkanda',label:'VIEW REPO ↗'}]},
  {title:'ALCOVE',kind:'MOBILE / DISCOVERY',copy:'Furniture discovery product matching people with furniture based on taste, room and budget through a guided, visual discovery experience rather than a traditional catalogue search.',tags:['MOBILE','RECOMMENDATION','UX','BRAND'],links:[{type:'repo',href:'https://github.com/CodeCreatorManMike/Alcove',label:'VIEW REPO ↗'}]},
- {title:'KIT-BIN',kind:'WASM / WEB PLATFORM',copy:'Free, 100% client-side (WASM) file conversion platform for PDF, image, audio, video and CSV. Hosted on Cloudflare Pages with a GitLab CI/CD pipeline, an SEO content pipeline, an editorial guides section and privacy-first local processing — monetised via Adsterra and Ko-fi.',tags:['WASM','CLOUDFLARE','GITLAB CI/CD','SEO'],links:[{type:'site',href:'https://kit-bin.com/',label:'VISIT SITE ↗'},{type:'repo',href:'https://github.com/CodeCreatorManMike/Kit-Bin',label:'VIEW REPO ↗'}]}
+ {title:'KIT-BIN',kind:'WASM / WEB PLATFORM',copy:'Free, 100% client-side (WASM) file conversion platform for PDF, image, audio, video and CSV. Hosted on Cloudflare Pages with a GitLab CI/CD pipeline, an SEO content pipeline, an editorial guides section and privacy-first local processing — monetised via Adsterra and Ko-fi.',tags:['WASM','CLOUDFLARE','GITLAB CI/CD','SEO'],icon:'/logos/kit-bin.png',links:[{type:'site',href:'https://kit-bin.com/',label:'VISIT SITE ↗'},{type:'repo',href:'https://github.com/CodeCreatorManMike/Kit-Bin',label:'VIEW REPO ↗'}]}
 ];
 
 const enterprise=[
@@ -168,6 +168,9 @@ function Terminal(){
 
 export default function Page(){
  const[time,setTime]=useState('');useEffect(()=>{const t=setInterval(()=>setTime(new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'})),1000);return()=>clearInterval(t)},[]);
+ useEffect(()=>{
+  projectImages.forEach(src=>{const img=new window.Image();img.src=src});
+ },[]);
  useEffect(()=>{
   const els=document.querySelectorAll('.reveal-group');
   if(!els.length)return;
