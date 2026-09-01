@@ -51,8 +51,8 @@ const clients=[
  ['HONK STUDIOS','Oxford recording-studio brand — website build, deployment and booking experience.','/logos/honk-studios.png'],
  ['RECYCL JUNCTION TRADING','Production website for a recycling business, built and deployed end-to-end.','/logos/recycl-junction.png'],
  ['PAWPACKPANTRY','E-commerce-style site for discovering and shopping pet products.','/logos/pawpackpantry.png'],
- ['MICHAEL-JONES-OS','Personal site and hub tied to independent music-artist work and personal brand.'],
- ['GLOBAL MOBILITY PLATFORM','Relocation/global-mobility workflow platform co-built with two other developers.']
+ ['KIT-BIN','Free, client-side file conversion platform — PDF, image, audio, video and CSV, live at kit-bin.com.','/logos/kit-bin.png'],
+ ['INDIDA CONSULTING','Creative direction, IT management and AI engineering for a growing consultancy practice.','/logos/indida-consulting.jpg']
 ];
 
 const certs=['Certified Nexthink Professional — DEX Management','Certified Nexthink Associate — IT Support','Certified Nexthink Associate','CybSafe Certification in Security Awareness (CCSA)','TryHackMe Pre Security','Python Crash Course — Eric Matthes','PowerShell for System Admins — Adam Bertram','Codecademy: HTML, CSS & PowerShell'];
