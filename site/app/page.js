@@ -21,17 +21,17 @@ const flagship=[
 ];
 
 const enterprise=[
- ['ESG Vendor Data Pipeline','Flagship project: scraped ESG data (carbon LCA, Energy Star ratings) from vendor laptop pages, then ingested and normalised it into a unified structure — powering ESG insights for customers and internal stakeholders through the company platform.'],
- ['AI Nexthink Scraper & Uploader','Built an AI-powered scraper/uploader using Claude to source and deploy Nexthink Remote Actions, and prototyped a Nexthink KB scraper to accelerate content sourcing and cut manual admin.'],
- ['Internal AI Adoption Demos','Researched Claude for team productivity use cases and built internal demos showing how AI could be woven into company workflows, supporting a wider AI-adoption push.'],
- ['Nexthink DEX Remote Action Library','Built and maintained a library of custom Remote Actions across security, diagnostics and encryption — Edge/Chrome checks, Sophos AV scripting for macOS, CPU/temperature monitoring, BitLocker automation tied into Azure, and speed tests — each documented for team reuse.'],
- ['Performance & Memory Workflows','Diagnostic scripting to identify high-RAM Chrome tabs, plus educational workflows to cut memory use in Chrome/Excel, a device reboot campaign, and connectivity/speed/RAM health reporting across the estate.'],
- ['Azure & Intune Automation','Built an Azure Function to automate a recurring operational process, and configured Chrome favourites deployment for macOS via Intune for consistent device configuration at scale.'],
- ['First-Line Support & Diagnostics','Managed first-line support and root-cause analysis for crashes, freezes, connectivity and device issues across a large enterprise IT estate using Nexthink DEX data.'],
- ['ITSM Platform Integration','Delivered a DevOps integration between Nexthink and the ITSM platform, automated service-desk ticket notifications, and reorganised ticket categorisation to cut manual triage.'],
- ['100+ Knowledge Articles','Authored and maintained 100+ customer-facing and internal KB articles — onboarding guides, persona creation, asset processes, tooling usage and a KB exporter tool — plus a full review and rebrand after a platform name change.'],
- ['Platform & Predictive Work','Wireframing and mock-ups with developers for new features, test personas and hardware imagery, a "Links" section on the SharePoint migration, and research into predictive-analytics capability.'],
- ['Adoption & Alerting','Ran a product-adoption campaign and built custom Nexthink alerts tailored to stakeholder-specific monitoring needs.']
+ ['ESG Vendor Data Pipeline','Flagship project: scraped ESG data (carbon LCA, Energy Star ratings) from vendor laptop pages, then ingested and normalised it into a unified structure — powering ESG insights for customers and internal stakeholders through the company platform.','/logos/technical/esg-vendor-pipeline.png'],
+ ['AI Nexthink Scraper & Uploader','Built an AI-powered scraper/uploader using Claude to source and deploy Nexthink Remote Actions, and prototyped a Nexthink KB scraper to accelerate content sourcing and cut manual admin.','/logos/technical/ai-nexthink-scraper-uploader.png'],
+ ['Internal AI Adoption Demos','Researched Claude for team productivity use cases and built internal demos showing how AI could be woven into company workflows, supporting a wider AI-adoption push.','/logos/technical/internal-ai-adoption-demos.png'],
+ ['Nexthink DEX Remote Action Library','Built and maintained a library of custom Remote Actions across security, diagnostics and encryption — Edge/Chrome checks, Sophos AV scripting for macOS, CPU/temperature monitoring, BitLocker automation tied into Azure, and speed tests — each documented for team reuse.','/logos/technical/nexthink-dex-remote-action-library.png'],
+ ['Performance & Memory Workflows','Diagnostic scripting to identify high-RAM Chrome tabs, plus educational workflows to cut memory use in Chrome/Excel, a device reboot campaign, and connectivity/speed/RAM health reporting across the estate.','/logos/technical/performance-memory-workflows.png'],
+ ['Azure & Intune Automation','Built an Azure Function to automate a recurring operational process, and configured Chrome favourites deployment for macOS via Intune for consistent device configuration at scale.','/logos/technical/azure-intune-automation.png'],
+ ['First-Line Support & Diagnostics','Managed first-line support and root-cause analysis for crashes, freezes, connectivity and device issues across a large enterprise IT estate using Nexthink DEX data.','/logos/technical/first-line-support-diagnostics.png'],
+ ['ITSM Platform Integration','Delivered a DevOps integration between Nexthink and the ITSM platform, automated service-desk ticket notifications, and reorganised ticket categorisation to cut manual triage.','/logos/technical/itsm-platform-integration.png'],
+ ['100+ Knowledge Articles','Authored and maintained 100+ customer-facing and internal KB articles — onboarding guides, persona creation, asset processes, tooling usage and a KB exporter tool — plus a full review and rebrand after a platform name change.','/logos/technical/100-knowledge-articles.png'],
+ ['Platform & Predictive Work','Wireframing and mock-ups with developers for new features, test personas and hardware imagery, a "Links" section on the SharePoint migration, and research into predictive-analytics capability.','/logos/technical/platform-predictive-work.png'],
+ ['Adoption & Alerting','Ran a product-adoption campaign and built custom Nexthink alerts tailored to stakeholder-specific monitoring needs.','/logos/technical/adoption-alerting.png']
 ];
 
 const gtm=[
@@ -80,6 +80,7 @@ const projectImages=[
 ];
 
 const rotateWords=['SYSTEM.','APP.','SOLUTION.','PROJECT.','PLATFORM.','PRODUCT.'];
+const teaserWords=['BUILT?','FIXED?','PLANNED?','AUTOMATED?','LAUNCHED?','DESIGNED?','SOLVED?'];
 
 function Boot(){const[n,setN]=useState(0);useEffect(()=>{const i=setInterval(()=>setN(v=>Math.min(v+3,100)),24);return()=>clearInterval(i)},[]);return <div className={'boot '+(n===100?'done':'')}><div><b>MJ/OS</b><p>LOADING PROFESSIONAL PROFILE...</p><div className="bar"><i style={{width:n+'%'}}/></div><small>{String(n).padStart(3,'0')}% · {n<100?'READING CV DATA':'PROFILE READY'}</small></div></div>}
 
@@ -139,10 +140,10 @@ function ProjectMouseTrail(){
  </div>
 }
 
-function RotatingWord(){
+function RotatingWord({words=rotateWords}){
  const[i,setI]=useState(0);
- useEffect(()=>{const t=setInterval(()=>setI(v=>(v+1)%rotateWords.length),2000);return()=>clearInterval(t)},[]);
- return <em className="rotating-word" key={i}>{rotateWords[i]}</em>
+ useEffect(()=>{const t=setInterval(()=>setI(v=>(v+1)%words.length),2000);return()=>clearInterval(t)},[words]);
+ return <em className="rotating-word" key={i}>{words[i]}</em>
 }
 
 function SystemGrid({items}){return <div className="system-grid">{items.map(([title,copy,icon],i)=><article key={title}>{icon&&<img className="card-icon" src={icon} alt="" />}<span>{String(i+1).padStart(2,'0')}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>}
@@ -202,7 +203,7 @@ export default function Page(){
   <nav className="floating-nav" aria-label="Primary navigation"><div><a href="#projects">PROJECTS</a><a href="#skills">SKILLS</a><a href="/solutions">SOLUTIONS</a><a href="#education">EDUCATION</a><a href="#contact">CONTACT</a></div></nav>
   <section id="top" className="hero"><VideoSwitcher/><div className="scanlines"/><ProjectMouseTrail/><div className="hero-copy"><p className="eyebrow">[ CREATIVE DEVELOPER · AI ENGINEER · TECHNICAL ANALYST ]</p><h1>MICHAEL<br/><em>JONES</em></h1><p className="intro">Self-taught developer building AI-integrated products end-to-end—from physical devices and mobile apps to enterprise automation and production websites.</p><div className="hero-actions"><a href="#projects">VIEW SYSTEMS ↓</a><a href="#explore">EXPLORE CLI ↓</a></div></div><aside className="system"><p>EXPERIENCE <b>3+ YEARS</b></p><p>LOCATION <b>OXFORD / UK</b></p><p>STUDY <b>BSc ARTIFICIAL INTELLIGENCE</b></p><p>LOCAL TIME <b>{time}</b></p></aside><div className="hero-foot"><span>ASCII FEED / AUTO SWITCH 08 SEC</span><span>BUILD 03 · 2026</span></div></section>
   <section className="ticker"><div>AI ENGINEERING +++ FULL-STACK DEVELOPMENT +++ MOBILE PRODUCTS +++ DEX AUTOMATION +++ HARDWARE PROTOTYPING +++ GTM SYSTEMS +++ CI/CD +++ </div></section>
-  <section className="solutions-teaser reveal-group"><div className="solutions-teaser-inner"><p className="eyebrow">[ FOR CLIENTS ]</p><h2>NEED SOMETHING<br/><em>BUILT?</em></h2><p>Free discovery calls, 6-week website builds, AI opportunity audits and product development — see the offerings and book straight in.</p><a href="/solutions" className="solutions-cta">VIEW SOLUTIONS ↗</a></div></section>
+  <section className="solutions-teaser reveal-group"><div className="solutions-teaser-inner"><p className="eyebrow">[ FOR CLIENTS ]</p><h2>NEED SOMETHING<br/><RotatingWord words={teaserWords}/></h2><p>Free discovery calls, 6-week website builds, AI opportunity audits and product development — see the offerings and book straight in.</p><a href="/solutions" className="solutions-cta">VIEW SOLUTIONS ↗</a></div></section>
   <section id="projects" className="section reveal-group"><div className="section-head"><span>01 / FLAGSHIP PROJECTS</span><span>DESIGNED + BUILT</span></div><div className="project-grid">{flagship.map((p,i)=><article key={p.title}>{p.icon&&<img className="card-icon" src={p.icon} alt="" />}<span className="project-no">P/{String(i+1).padStart(2,'0')}</span><p>{p.kind}</p><h2>{p.title}</h2><p className="copy">{p.copy}</p><div className="tags">{p.tags.map(t=><span key={t}>{t}</span>)}</div>{p.links&&p.links.length>0&&<div className="project-links">{p.links.map(l=><a key={l.href} className={'project-link '+l.type} href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>)}</div>}<div className="ascii-mark">{['▓▒░','╱╲','◢◤','[<>]','((( )))','+ XP'][i]}</div></article>)}</div></section>
   <section className="ascii-donut-section"><AsciiDonut/></section>
   <section className="section systems reveal-group"><div className="section-head"><span>02 / TECHNICAL ANALYSIS + DEX</span><span>NEXTHINK · POWERSHELL · PYTHON · AZURE</span></div><p className="lead">Enterprise-scale automation, diagnostics, ITSM integrations, AI adoption and more than 100 internal and customer-facing knowledge articles.</p><SystemGrid items={enterprise}/></section>
