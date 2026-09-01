@@ -9,10 +9,10 @@ const experience=[
 ];
 
 const flagship=[
- {title:'GRAVITY',kind:'AI HARDWARE / FULL STACK',copy:'AI-powered accountability device built around an ESP32-S3, circular display and environmental sensors. FastAPI + PostgreSQL backend, pgvector memory, provider-agnostic Claude/Groq/Ollama layer, SearXNG research and a multi-agent VPS development workflow.',tags:['ESP32-S3','FASTAPI','POSTGRESQL','PGVECTOR','OLLAMA']},
- {title:'NKANDA',kind:'MOBILE / RAG / TRAVEL',copy:'AI-powered visa and travel admin app. A RAG system grounded in official government rules reviews applications, flags missing information, recommends corrections and turns complex compliance into a guided mobile flow.',tags:['SWIFTUI','RAG','OCR','AI','PRODUCT DESIGN']},
- {title:'ALCOVE',kind:'MOBILE / DISCOVERY',copy:'Furniture discovery product matching people with furniture based on taste, room and budget through a guided, visual discovery experience rather than a traditional catalogue.',tags:['MOBILE','RECOMMENDATION','UX','BRAND']},
- {title:'KIT-BIN',kind:'WASM / WEB PLATFORM',copy:'Free client-side file conversion platform for PDF, image, audio, video and CSV. Built with Cloudflare Pages, GitLab CI/CD, an SEO content pipeline, editorial guides and privacy-first local processing.',tags:['WASM','CLOUDFLARE','GITLAB CI/CD','SEO']},
+ {title:'GRAVITY',kind:'AI HARDWARE / FULL STACK',copy:'AI-powered accountability device built around an ESP32-S3, circular display and environmental sensors. FastAPI + PostgreSQL backend, pgvector memory, provider-agnostic Claude/Groq/Ollama layer, SearXNG research and a multi-agent VPS development workflow.',tags:['ESP32-S3','FASTAPI','POSTGRESQL','PGVECTOR','OLLAMA'],link:'https://github.com/CodeCreatorManMike/GRAVITY-OS',linkLabel:'REPO ↗'},
+ {title:'NKANDA',kind:'MOBILE / RAG / TRAVEL',copy:'AI-powered visa and travel admin app. A RAG system grounded in official government rules reviews applications, flags missing information, recommends corrections and turns complex compliance into a guided mobile flow.',tags:['SWIFTUI','RAG','OCR','AI','PRODUCT DESIGN'],link:'https://github.com/CodeCreatorManMike/Nkanda',linkLabel:'REPO ↗'},
+ {title:'ALCOVE',kind:'MOBILE / DISCOVERY',copy:'Furniture discovery product matching people with furniture based on taste, room and budget through a guided, visual discovery experience rather than a traditional catalogue.',tags:['MOBILE','RECOMMENDATION','UX','BRAND'],link:'https://github.com/CodeCreatorManMike/Alcove',linkLabel:'REPO ↗'},
+ {title:'KIT-BIN',kind:'WASM / WEB PLATFORM',copy:'Free client-side file conversion platform for PDF, image, audio, video and CSV. Built with Cloudflare Pages, GitLab CI/CD, an SEO content pipeline, editorial guides and privacy-first local processing.',tags:['WASM','CLOUDFLARE','GITLAB CI/CD','SEO'],link:'https://kit-bin.com/',linkLabel:'VISIT ↗'},
  {title:'AI VOICE AGENTS',kind:'VOICE / RAG / VPS',copy:'Self-running RAG pipeline combining voice translation, speech recognition and content generation, deployed on a Hostinger VPS and integrated into an application in development.',tags:['RAG','VOICE AI','VPS','AUTOMATION']},
  {title:'PYTHON LEARNING PLATFORM',kind:'EDTECH / AI BUILD',copy:'Turned a full Python course and supporting fundamentals into a Codecademy-style learning platform with lessons, XP, levels, badges and unlockable projects—in 24 hours.',tags:['PYTHON','GPT-5','EDTECH','GAMIFICATION']}
 ];
@@ -79,31 +79,34 @@ function VideoSwitcher(){
 }
 
 function ProjectMouseTrail(){
- const ref=useRef(null);
- const[state,setState]=useState({visible:false,x:0,y:0,img:projectImages[0]});
- const lastSwap=useRef(0);
+ const zoneRef=useRef(null);
+ const[items,setItems]=useState([]);
+ const lastSpawn=useRef(0);
+ const lastImg=useRef(null);
+ const idRef=useRef(0);
  useEffect(()=>{
-  const el=ref.current;
+  const el=zoneRef.current;
   if(!el)return;
-  if(window.matchMedia && window.matchMedia('(pointer: coarse)').matches)return;
+  if(typeof window!=='undefined' && window.matchMedia && window.matchMedia('(pointer: coarse)').matches)return;
   const onMove=(e)=>{
    const now=performance.now();
-   let img=state.img;
-   if(now-lastSwap.current>260){
-    img=projectImages[Math.floor(Math.random()*projectImages.length)];
-    lastSwap.current=now;
-   }
-   setState({visible:true,x:e.clientX,y:e.clientY,img});
+   if(now-lastSpawn.current<100)return;
+   lastSpawn.current=now;
+   const rect=el.getBoundingClientRect();
+   let img=projectImages[Math.floor(Math.random()*projectImages.length)];
+   if(projectImages.length>1){while(img===lastImg.current){img=projectImages[Math.floor(Math.random()*projectImages.length)]}}
+   lastImg.current=img;
+   const id=++idRef.current;
+   const rot=(Math.random()*12-6).toFixed(1);
+   const item={id,x:e.clientX-rect.left,y:e.clientY-rect.top,img,rot};
+   setItems(prev=>[...prev.slice(-13),item]);
+   setTimeout(()=>{setItems(prev=>prev.filter(it=>it.id!==id))},950);
   };
-  const onLeave=()=>setState(s=>({...s,visible:false}));
   el.addEventListener('mousemove',onMove);
-  el.addEventListener('mouseleave',onLeave);
-  return()=>{el.removeEventListener('mousemove',onMove);el.removeEventListener('mouseleave',onLeave)};
+  return()=>el.removeEventListener('mousemove',onMove);
  },[]);
- return <div ref={ref} className="mouse-trail-zone">
-  <div className={'mouse-trail-image '+(state.visible?'visible':'')} style={{transform:`translate3d(${state.x+22}px, ${state.y-90}px, 0)`}}>
-   <img src={state.img} alt="" draggable={false}/>
-  </div>
+ return <div ref={zoneRef} className="mouse-trail-zone">
+  {items.map(it=><div key={it.id} className="trail-image" style={{left:it.x,top:it.y,'--rot':it.rot+'deg'}}><img src={it.img} alt="" draggable={false}/></div>)}
  </div>
 }
 
@@ -116,13 +119,13 @@ export default function Page(){
   <section id="top" className="hero"><VideoSwitcher/><div className="scanlines"/><ProjectMouseTrail/><div className="hero-copy"><p className="eyebrow">[ CREATIVE DEVELOPER · AI ENGINEER · TECHNICAL ANALYST ]</p><h1>MICHAEL<br/><em>JONES</em></h1><p className="intro">Self-taught developer building AI-integrated products end-to-end—from physical devices and mobile apps to enterprise automation and production websites.</p><div className="hero-actions"><a href="#projects">VIEW SYSTEMS ↓</a><a href="#experience">READ CV ↓</a></div></div><aside className="system"><p>EXPERIENCE <b>3+ YEARS</b></p><p>LOCATION <b>OXFORD / UK</b></p><p>STUDY <b>BSc ARTIFICIAL INTELLIGENCE</b></p><p>LOCAL TIME <b>{time}</b></p></aside><div className="hero-foot"><span>ASCII FEED / AUTO SWITCH 08 SEC</span><span>BUILD 02 · 2026</span></div></section>
   <section className="ticker"><div>AI ENGINEERING +++ FULL-STACK DEVELOPMENT +++ MOBILE PRODUCTS +++ DEX AUTOMATION +++ HARDWARE PROTOTYPING +++ GTM SYSTEMS +++ CI/CD +++ </div></section>
   <section id="experience" className="section"><div className="section-head"><span>01 / PROFESSIONAL EXPERIENCE</span><span>3+ YEARS / 4 ORGANISATIONS</span></div><div className="timeline">{experience.map((x,i)=><article key={x.company}><span className="num">0{i+1}</span><div><p>{x.period}</p><h2>{x.company}</h2></div><div><h3>{x.role}</h3><p>{x.summary}</p></div></article>)}</div></section>
-  <section id="projects" className="section"><div className="section-head"><span>02 / FLAGSHIP PROJECTS</span><span>DESIGNED + BUILT</span></div><div className="project-grid">{flagship.map((p,i)=><article key={p.title}><span className="project-no">P/{String(i+1).padStart(2,'0')}</span><p>{p.kind}</p><h2>{p.title}</h2><p className="copy">{p.copy}</p><div className="tags">{p.tags.map(t=><span key={t}>{t}</span>)}</div><div className="ascii-mark">{['▓▒░','╱╲','◢◤','[<>]','((( )))','+ XP'][i]}</div></article>)}</div></section>
+  <section id="projects" className="section"><div className="section-head"><span>02 / FLAGSHIP PROJECTS</span><span>DESIGNED + BUILT</span></div><div className="project-grid">{flagship.map((p,i)=><article key={p.title}><span className="project-no">P/{String(i+1).padStart(2,'0')}</span><p>{p.kind}</p><h2>{p.title}</h2><p className="copy">{p.copy}</p><div className="tags">{p.tags.map(t=><span key={t}>{t}</span>)}</div>{p.link&&<a className="project-link" href={p.link} target="_blank" rel="noopener noreferrer">{p.linkLabel}</a>}<div className="ascii-mark">{['▓▒░','╱╲','◢◤','[<>]','((( )))','+ XP'][i]}</div></article>)}</div></section>
   <section className="section systems"><div className="section-head"><span>03 / GTM ENGINEERING</span><span>AI-FIRST OUTBOUND SYSTEMS</span></div><p className="lead">Built and scaled demand-generation infrastructure using Clay, Lemlist, n8n and Python, supporting 16+ qualified enterprise meetings per month.</p><SystemGrid items={gtm}/></section>
   <section className="section systems"><div className="section-head"><span>04 / TECHNICAL ANALYSIS + DEX</span><span>NEXTHINK · POWERSHELL · PYTHON · AZURE</span></div><p className="lead">Enterprise-scale automation, diagnostics, ITSM integrations, AI adoption and more than 100 internal and customer-facing knowledge articles.</p><SystemGrid items={enterprise}/></section>
   <section className="section"><div className="section-head"><span>05 / CLIENT + PLATFORM BUILDS</span><span>LIVE DIGITAL PRODUCTS</span></div><SystemGrid items={clients}/></section>
   <section id="skills" className="section"><div className="section-head"><span>06 / TECHNICAL STACK</span><span>CAPABILITIES.LOG</span></div><div className="skills"><div><h3>BUILD</h3>{['Python','FastAPI','PostgreSQL / pgvector','Swift / SwiftUI','JavaScript / React','HTML / CSS','WASM','APIs / Webhooks','Web Scraping'].map(x=><span key={x}>{x}</span>)}</div><div><h3>AI + AUTOMATION</h3>{['RAG Systems','Claude / GPT / Groq','Ollama','AI Agent Orchestration','n8n','Clay','Lemlist','Voice AI','sentence-transformers'].map(x=><span key={x}>{x}</span>)}</div><div><h3>INFRA + ENTERPRISE</h3>{['GitLab CI/CD','Docker','Cloudflare Pages','VPS / Homelab','Tailscale / VPN','Nexthink DEX','PowerShell','Azure / Intune','ITSM'].map(x=><span key={x}>{x}</span>)}</div><div><h3>PRODUCT + HARDWARE</h3>{['Product Design','Figma / Wireframing','Brand Systems','ESP32-S3','Sensors / Embedded','PCB Planning','SEO Pipelines','Technical Writing'].map(x=><span key={x}>{x}</span>)}</div></div></section>
   <section className="section infra"><div className="section-head"><span>07 / INFRASTRUCTURE + LEARNING</span><span>SELF-DIRECTED</span></div><div className="terminal"><div className="terminal-top"><i/><i/><i/><span>michael@homelab:~</span></div><p><b>$</b> cat infrastructure.txt</p><p>Self-hosted GitLab CE on a home NUC using Docker Compose, with an Ollama-powered Python code-review service. Extended AI inference through a secure remote server over Tailscale/SSH, with a custom agent and Telegram gateway. Production CI/CD flows from GitLab to Cloudflare Pages.</p><p><b>$</b> cat current_learning.txt</p><p>Python roadmap, linear algebra and calculus preparation for a BSc in Artificial Intelligence. Earlier builds include a full Blackjack remake with JSON persistence, bank simulation, API/CSV/webhook tools and a Gumtree value-ranking scraper.</p><span className="caret">█</span></div></section>
   <section id="education" className="section"><div className="section-head"><span>08 / EDUCATION + ACHIEVEMENTS</span><span>CREDENTIALS</span></div><div className="education"><article><p>UNIVERSITY</p><h2>BSc ARTIFICIAL INTELLIGENCE</h2><h3>Oxford Brookes University</h3></article><article><p>SECONDARY EDUCATION</p><h2>80% / A AVERAGE</h2><h3>Crawford International — North Coast</h3><ul><li>6 distinctions and 2 Bs</li><li>Top 1% nationally in History, Business, Art and Geography</li><li>Full Academic Colours</li><li>Full Community Service Colours</li><li>Humanitarian Award</li></ul></article></div><div className="credential-grid"><div><h3>CERTIFICATIONS</h3>{certs.map(x=><p key={x}>✓ {x}</p>)}</div><div><h3>MICROSOFT LEARN · INTUNE</h3>{microsoft.map(x=><p key={x}>+ {x}</p>)}</div></div></section>
-  <section id="contact" className="contact section"><p>[ 09 / OPEN CHANNEL ]</p><h2>BUILDING THE<br/><em>NEXT SYSTEM.</em></h2><div><a href="https://github.com/CodeCreatorManMike" target="_blank">GITHUB ↗</a><a href="#top">BACK TO TOP ↑</a></div></section><footer><span>MICHAEL JONES / CV SYSTEM</span><span>OXFORD · UNITED KINGDOM · 2026</span></footer>
+  <section id="contact" className="contact section"><p>[ 09 / OPEN CHANNEL ]</p><h2>BUILDING THE<br/><em>NEXT SYSTEM.</em></h2><div><a href="mailto:michaeljonesincorporated@gmail.com" target="_blank" rel="noopener noreferrer">EMAIL ↗</a><a href="https://www.linkedin.com/in/michael-jones-50a37b261/" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a><a href="https://github.com/CodeCreatorManMike" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><a href="https://www.instagram.com/michael._.jones06/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a><a href="https://www.tiktok.com/@michael._.jones" target="_blank" rel="noopener noreferrer">TIKTOK ↗</a><a href="https://www.youtube.com/@Michael._.jones06" target="_blank" rel="noopener noreferrer">YOUTUBE ↗</a><a href="#top">BACK TO TOP ↑</a></div></section><footer><span>MICHAEL JONES / CV SYSTEM</span><span>OXFORD · UNITED KINGDOM · 2026</span></footer>
  </main>
 }
