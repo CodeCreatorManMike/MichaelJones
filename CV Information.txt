@@ -1,0 +1,229 @@
+CV Information:
+
+Roles/Experience:
+3 Years Working (RecyclJunction, Indida Consulting, Viadex, VX-One)
+
+Indida Consulting - Creative Director / IT Management / AI Engineer
+Viadex - Marketing Intern / Junior GTM Engineer
+VX-One - Junior Technical Analyst - VX-One
+
+
+Skills:
+
+
+Achievements / Certificates:
+
+> Full Academic Colors (National - KZN)
+> Full Community Service Colors (National - KZN)
+> 6 Distinctions and 2 B's (Average: 80%/A)
+> Top 1% In The Country For 4 Subjects (History, Business, Art, Geography)
+> Humanitarian Award (Crawford International (North Coast))
+> Certified Nexthink Professional In DEX Management 
+> Certified Nexthink Associate In IT Support
+> Certified Nexthink Associate
+> CybSafe Certification In Security Awareness (CCSA)
+> Pre Security (TryHackMe)
+> Python Crash Course (By Eric Matthis)
+> PowerShell For System Admins (By Adam Bertram)
+> codecademy self-enrolled courses (Learn HTML, Learn CSS, Learn PowerShell)
+
+GitHub:
+> Quickdraw, YOLO
+
+Microsoft Learn (level 4) (Badges / Microsoft Intune Fundamentals):
+
+> Introduction To Microsoft Intune
+> Protect Your Endpoint Environment With Microsoft Intune
+> Understand Device Management Using Microsoft Intune
+> Understand Conditional Access Policies Using Microsoft Intune
+> Analyze and Resolve Compliance Issues Using Microsoft Intune
+> Benefits Of Microsoft Intune
+> Understand App Management Using Microsoft Intune
+
+Education:
+
+IEB Highschool: 
+Crawford International - North Coast (https://www.crawfordinternational.co.za/north-coast) 
+
+University: 
+BSc In Artificial Intelligence @ Oxford Brookes University (https://www.brookes.ac.uk/courses/undergraduate/artificial-intelligence)
+
+
+
+Things I've Done (Anonymous) / Projects
+While a GTM Engineer / Marketing Automation Specialist
+
+Built and scaled outbound demand-generation systems (Clay, Lemlist, n8n, Python) supporting 16+ qualified enterprise meetings/month; combined marketing ops with AI and automation to improve pipeline quality and lay foundations for AI-first GTM.
+
+Projects (CV format)
+
+Clay Central Database — Enrichment & Ops Architecture
+Designed and administered a centralized Clay database powering company/contact enrichment and campaign targeting across the GTM function, improving data accuracy and reuse across teams.
+
+Account Plan Generator (Clay)
+Built a Clay-based system that auto-generates structured account plans for target accounts, streamlining ABM research and rep prep time.
+
+Lemlist Campaign Management & Optimization
+Owned end-to-end campaign lifecycle (creation, launch, QC, optimization) across multiple product lines, improving reply rate from 0.39% toward a 0.8–1.0% target while maintaining <1% bounce and >40% open rates.
+
+Lemlist Python API Integration Tool
+Developed a custom Python program against the Lemlist API to surface LinkedIn engagement and outreach signals, enabling more targeted, data-driven follow-up.
+
+Clay ↔ Lemlist Webhook Integration
+Engineered webhook-based integration connecting enrichment and outreach platforms, reducing manual handoffs and keeping campaign data in sync in real time.
+
+Automated Landing Page Builder (n8n)
+Built a no-code/low-code automation workflow in n8n to generate campaign landing pages programmatically, cutting manual page-build time.
+
+Agentic AI Voice Assistant — "Amy" (Prototype)
+Prototyped an agentic AI voice model for GTM experimentation, exploring conversational AI applications in outbound engagement.
+
+Web Visitor Identification & Automated Qualification Workflow
+Implemented automation to detect, qualify, and trigger outbound follow-up on website visitors, turning anonymous traffic into actionable pipeline signals.
+
+Signal-Based Outbound Campaigns (Job Changes, Compliance Triggers)
+Built trigger-based outreach campaigns keyed to job-change and compliance-deadline signals, improving relevance and timing of outbound touches.
+
+Multi-Vertical Outbound Campaign Portfolio
+Created, launched, and managed outbound campaigns across multiple product lines and industry verticals, plus persona-based nurture cadences and insurance/legal-sector bottom-of-funnel sequences.
+
+TAM Enrichment & Buying-Group Mapping
+Reworked Total Addressable Market data structure and built buying-group mapping with function normalization, improving segmentation accuracy for targeted campaigns.
+
+Third-Party Data Enrichment Program
+Managed multiple iterations of third-party data enrichment, improving contact and firmographic data quality for outbound targeting.
+
+Event & Webinar Lead Pipeline (Extraction to Cadence)
+Built end-to-end workflow from webinar/event lead extraction through enrichment and cadence launch, converting event attendance into structured outbound follow-up.
+
+Marketing Reporting & Enablement Hub
+Built and maintained the company's marketing SharePoint site, website analytics reporting, and recurring internal newsletters, plus a LinkedIn engagement reporting booklet for leadership visibility.
+
+GTM Tooling Enablement Program
+Designed and delivered induction/training sessions ("academies") on Clay, n8n, Lemlist, Salesloft, HTML, and Python for onboarding new GTM hires.
+
+While Being a Technical Analyst
+
+Delivered end-to-end DEX tooling, automation, and ITSM integrations across a large enterprise IT estate using Nexthink, PowerShell, Python, and Azure; built an AI-driven ESG data pipeline and 100+ knowledge base articles supporting internal and customer-facing platform adoption.
+
+Projects (CV format)
+
+ESG Vendor Data Pipeline (Scraping, Ingestion & Normalization) (flagship project)
+Designed and built a system to scrape ESG data (carbon LCA, Energy Star ratings) from vendor laptop pages, then ingest and normalize the data into a unified structure for reporting through the company platform — enabling ESG insights for customers and internal stakeholders.
+
+AI-Assisted Nexthink Remote Action Scraper & Uploader
+Built an AI-powered scraper/uploader (using Claude) to source and deploy Nexthink Remote Actions, and prototyped a Nexthink KB scraper to accelerate content sourcing and reduce manual admin.
+
+Internal AI Adoption Demos
+Researched Claude's functionality for team productivity use cases and built internal demos showcasing how AI could be integrated into company workflows, supporting a wider AI-adoption push.
+
+Nexthink DEX Remote Action Library
+Developed and maintained a library of custom Remote Actions across security, diagnostics, and encryption — including Edge/Chrome security-setting checks, Sophos AV scripting for macOS, vendor CPU/device temperature monitoring, BitLocker decrypt/re-encrypt automation tied into Azure, and device speed-test actions — each fully documented with descriptions for reuse across the team.
+
+Chrome/Device Performance & Memory Optimization Workflows
+Built diagnostic scripting to identify high-RAM Chrome tabs and created educational workflows/campaigns to reduce memory utilization in Chrome, Excel, and other high-impact applications, alongside a device reboot campaign and health reporting (connectivity, speed, RAM) across the estate.
+
+Automation & Azure Functions
+Built an Azure Function to automate a recurring operational process, and configured Chrome favourites deployment for macOS via Intune — improving consistency of device configuration at scale.
+
+First-Line Support & Estate-Wide Diagnostics
+Managed first-line support and helped identify and diagnose bugs, crashes, freezes, and device issues across a large enterprise IT estate, using Nexthink DEX data to speed up root-cause analysis.
+
+ITSM Platform Integration & Automation
+Delivered a DevOps integration between Nexthink and the ITSM platform, built automation to notify the service desk of ticket creation/updates, and reorganized ticket categorization — reducing manual triage and improving service desk visibility. Also managed and adjusted ongoing ITSM tool configuration.
+
+Knowledge Base & Documentation Program (100+ articles)
+Authored and maintained 100+ customer-facing and internal KB articles covering the company's platform and Nexthink usage — including onboarding guides, persona creation, asset ordering/returns, timesheet processes, internal tooling usage, and a KB exporter tool. Led a full review and improvement pass of the knowledge base and rebranded all KB content following a company platform name change.
+
+Platform Contributions
+Collaborated with developers on wireframing and mock-ups for new application features, added test personas and hardware imagery to the platform, and contributed to a "Links" section on the main SharePoint site as part of a broader SharePoint migration.
+
+Predictive Capability Research
+Reviewed and researched internal database structures to assess and support predictive-analytics capabilities for the platform.
+
+Adoption & Alerting Initiatives
+Ran a product-adoption campaign and built custom Nexthink alerts for stakeholder-specific monitoring needs.
+
+
+
+
+Personal Projects Summary (CV-Ready) — Updated
+Summary Line
+
+Self-taught developer building AI-integrated products end-to-end — from AI hardware devices to mobile apps and client websites — spanning Python, full-stack development, AI agent orchestration, CI/CD, and self-hosted infrastructure.
+
+Flagship Projects
+
+Gravity — AI-Powered Personal Accountability Device
+Designing and building a physical AI hardware device (ESP32-S3, circular display, capacitive touch, accelerometer, ambient light sensing) paired with a FastAPI + PostgreSQL backend and a provider-agnostic AI layer (Claude, Groq, Ollama). Built long-term memory using pgvector + sentence-transformers for meaning-based recall, a self-hosted SearXNG research layer, and a nudge/notification system with cooldowns and daily caps to keep AI-driven accountability useful rather than intrusive. Architected a multi-agent development workflow ("Hermes agents") running on a VPS, using GitHub Projects as a shared task board between the agents and myself. Full hardware plan mapped toward a custom PCB via JLCPCB, with a prototype build in progress. Evolved from an earlier self-tracking prototype, Deskling OS, after identifying that self-reported logging without real monitoring produced no accountability.
+
+Nkanda — AI-Powered Visa & Travel Admin Mobile App
+Built a mobile app that digitizes visa applications and travel admin end-to-end. At its core is a RAG (Retrieval-Augmented Generation) system trained on official government documentation and visa rule sets: the model reviews a user's submitted information against the source rules, recommends corrections and rephrasing to meet requirements, and flags missing or incomplete information before submission — turning a traditionally manual, error-prone paperwork process into an AI-assisted compliance check.
+
+Alcove — Furniture Discovery Application
+Building a mobile/app-based furniture discovery product, designed to help users find furniture matched to their taste, space, and budget through a guided discovery experience rather than a traditional storefront search.
+
+Client Website Builds
+
+Designed, built, deployed, and continue to maintain production websites for external clients, covering everything from initial build through to launch and ongoing upkeep:
+
+Honk Studios — client website build and deployment
+Kit-Bin (kit-bin.com) — free, 100% client-side (WASM) browser-based file conversion tool (PDF, image, audio, video, CSV), hosted on Cloudflare Pages with a GitLab CI/CD pipeline, SEO content pipeline, and an editorial guides section; monetised via Adsterra and Ko-fi
+recycL Junction Trading — website for a recycling business
+PawPackPantry — e-commerce-style site for discovering and shopping pet products
+Personal Projects
+
+MICHAEL-JONES-OS
+Personal site/hub built for myself, tied to independent music-artist work and personal brand presence.
+
+Global Mobility Application Platform
+Co-built a platform supporting global mobility/relocation workflows, collaborating with two other developers.
+
+AI & Automation Projects
+
+AI Voice Agents — Translation, Recognition & Generation Pipeline
+Built a self-running RAG system deployed on a Hostinger VPS, combining voice translation, speech recognition, and content/text generation, integrated into an in-development app.
+
+AI-Generated Learning Platform (Python Upskilling Tool)
+Sourced a full Python course's transcripts, combined them with additional fundamentals, and used GPT-5 to architect a Codecademy-style learning platform — lessons, XP points, level-ups, and unlockable practice projects. Refined the build in Lovable AI with an 8-bit arcade theme, badges, and user stats. Went from idea to fully working platform in 24 hours.
+
+Infrastructure, DevOps & Security
+
+Self-Hosted Homelab & CI/CD Infrastructure
+Run a self-hosted GitLab CE instance on a home NUC (Docker Compose) as a personal CI/CD backbone, alongside a Python AI code-review service powered by Ollama (Phi-3-mini). Extended compute via a persistent AI inference server on a remote machine, accessed securely over Tailscale/SSH, running Ollama with a custom agent and Telegram gateway.
+
+CI/CD Pipeline Design
+Built and operate CI/CD pipelines (GitLab CI/CD → Cloudflare Pages) powering automated build/deploy for live production sites.
+
+Networking & Security Practice
+Hands-on cybersecurity research using TryHackMe and custom firmware (Bruce/Porkchop) on a M5Stack Cardputer for security experimentation; practical networking experience via Tailscale-based remote infrastructure access and VPN-secured self-hosted services.
+
+Self-Directed Technical Growth
+
+From Python Crash Course to Real Applications
+Used a self-directed 3-month study period (Python Crash Course by Eric Matthes) to build a portfolio of functional projects: a full Blackjack remake with betting/chip management (JSON-based persistence), a bank account simulation app, API/CSV/webhook integration tools, and a Gumtree web scraper with a value-based listing-ranking algorithm. Currently progressing through the Python roadmap on roadmap.sh, alongside self-study in linear algebra and calculus ahead of starting a BSc in Artificial Intelligence.
+
+Keywords for ATS/CV: full-stack development, mobile app development, Python, FastAPI, PostgreSQL, pgvector, RAG systems, AI agent orchestration, LLM integration (Claude/GPT/Groq/Ollama), embedded systems (ESP32-S3), hardware prototyping, PCB design, CI/CD pipelines, GitLab CE, Docker, Cloudflare Pages, WASM, self-hosted infrastructure, Tailscale/VPN networking, cybersecurity research, web scraping, API integration, product design, end-to-end deployment.
+
+Want me to turn this into a portfolio-style Word/PDF doc, or keep tightening the Gravity/Nkanda/Alcove write-ups further since those are your strongest pieces?
+
+
+
+Quick Links:
+Email: michaeljonesincorporated@gmail.com
+LinkedIn: https://www.linkedin.com/in/michael-jones-50a37b261/
+GitHub: https://github.com/CodeCreatorManMike
+Instagram: https://www.instagram.com/michael._.jones06/
+TikTok: https://www.tiktok.com/@michael._.jones
+Youtube: https://www.youtube.com/@Michael._.jones06
+
+GitHub Project & Website Links:
+Gravity: https://github.com/CodeCreatorManMike/GRAVITY-OS
+Nkanda: https://github.com/CodeCreatorManMike/Nkanda
+Alcove: https://github.com/CodeCreatorManMike/Alcove
+Kit-Bin: https://kit-bin.com/ & https://github.com/CodeCreatorManMike/Kit-Bin
+
+
+
+
+
