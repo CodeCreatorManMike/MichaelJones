@@ -71,7 +71,8 @@ const projectImages=[
  '/projects/python_blackjack_project.jpg','/projects/python_learning_platform.jpg','/projects/python_learning_platform_2.jpg','/projects/python_learning_platform_3.jpg',
  '/projects/bruse_firmware.jpg','/projects/computer_in_progress.jpg','/projects/computer_in_progress_2.jpg',
  '/projects/gravity_github_project.png','/projects/gravity_hardware_ui_mockup.png','/projects/gravity_in_progress.png','/projects/gravity_mockup.png',
- '/projects/personal_microsite.png','/projects/personal_microsite_2.png','/projects/personal_microsite_3.png'
+ '/projects/personal_microsite.png','/projects/personal_microsite_2.png','/projects/personal_microsite_3.png',
+ '/projects/deskling_os.png','/projects/deskling_os_2.png','/projects/deskling_os_3.png','/projects/readme_github.png'
 ];
 
 const rotateWords=['SYSTEM.','APP.','SOLUTION.','PROJECT.','PLATFORM.','PRODUCT.'];
