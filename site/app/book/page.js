@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { supabase } from '../../lib/supabaseClient';
 
 const services = {
   'discovery-call': { title: 'FREE DISCOVERY CALL', sub: 'A relaxed, no-obligation 30-minute conversation about your business and what could be improved.' },
@@ -13,6 +14,8 @@ const fallback = { title: 'BOOK A CALL', sub: 'Tell me a bit about what you need
 export default function Book() {
   const [service, setService] = useState(null);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -21,8 +24,33 @@ export default function Book() {
 
   const info = services[service] || fallback;
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
+
+    if (!supabase) {
+      setError('Booking is temporarily unavailable — please email me directly instead.');
+      return;
+    }
+
+    const form = e.target;
+    const payload = {
+      service: service || null,
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      company: form.company.value.trim() || null,
+      preferred_time: form.time.value.trim() || null,
+      message: form.message.value.trim() || null,
+    };
+
+    setSending(true);
+    const { error: insertError } = await supabase.from('bookings').insert(payload);
+    setSending(false);
+
+    if (insertError) {
+      setError('Something went wrong sending that — please try again, or email me directly.');
+      return;
+    }
     setSent(true);
   };
 
@@ -59,8 +87,8 @@ export default function Book() {
             <label>COMPANY<input type="text" name="company" placeholder="Company / project (optional)" /></label>
             <label>PREFERRED TIME<input type="text" name="time" placeholder="e.g. weekday afternoons, GMT" /></label>
             <label>WHAT DO YOU NEED?<textarea name="message" rows={5} placeholder="A few lines about what you're looking to do..." /></label>
-            <button type="submit">SEND REQUEST ↗</button>
-            <p className="book-note">Frontend only for now — this doesn&apos;t send anywhere yet.</p>
+            <button type="submit" disabled={sending}>{sending ? 'SENDING…' : 'SEND REQUEST ↗'}</button>
+            {error && <p className="book-error">{error}</p>}
           </form>
         )}
       </section>
