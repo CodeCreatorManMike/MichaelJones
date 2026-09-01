@@ -1,0 +1,9 @@
+.floating-nav {
+  justify-content: center;
+}
+
+@media (max-width: 850px) {
+  .floating-nav > div {
+    max-width: calc(100vw - 24px);
+  }
+}
