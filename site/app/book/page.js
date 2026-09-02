@@ -12,15 +12,19 @@ const services = {
 };
 const fallback = { title: 'BOOK A CALL', sub: 'Tell me a bit about what you need and I will get back to you within 24 hours.' };
 
+const MIN_FILL_TIME_MS = 3000;
+
 export default function Book() {
   const [service, setService] = useState(null);
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(null);
+  const [mountedAt, setMountedAt] = useState(0);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     setService(params.get('service'));
+    setMountedAt(Date.now());
   }, []);
 
   const info = services[service] || fallback;
@@ -29,12 +33,26 @@ export default function Book() {
     e.preventDefault();
     setError(null);
 
+    const form = e.target;
+
+    // Honeypot: a field hidden from real users but visible to most bots.
+    // If it's filled in, silently pretend success without actually sending.
+    if (form.website.value.trim() !== '') {
+      setSent(true);
+      return;
+    }
+
+    // Bots tend to submit near-instantly; real people take a few seconds.
+    if (Date.now() - mountedAt < MIN_FILL_TIME_MS) {
+      setError('That was quick — give it a moment and try again.');
+      return;
+    }
+
     if (!supabase) {
       setError('Booking is temporarily unavailable — please email me directly instead.');
       return;
     }
 
-    const form = e.target;
     const payload = {
       service: service || null,
       name: form.name.value.trim(),
@@ -83,6 +101,10 @@ export default function Book() {
         ) : (
           <form className="book-form" onSubmit={onSubmit}>
             <div className="terminal-top"><i /><i /><i /><span>michael@systems:~/book</span></div>
+            <div className="hp-field" aria-hidden="true">
+              <label htmlFor="website">Website</label>
+              <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+            </div>
             <label>NAME<input type="text" name="name" required placeholder="Your full name" /></label>
             <label>EMAIL<input type="email" name="email" required placeholder="you@company.com" /></label>
             <label>COMPANY<input type="text" name="company" placeholder="Company / project (optional)" /></label>
