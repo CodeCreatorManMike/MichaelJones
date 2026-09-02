@@ -1,3 +1,5 @@
+import SiteFooter from '../SiteFooter';
+
 export const metadata = {
   title: 'Solutions — Michael Jones',
   description: 'Free discovery calls, website builds, AI opportunity audits and product development for clients.',
@@ -94,10 +96,7 @@ export default function Solutions() {
         </section>
       ))}
 
-      <footer>
-        <span>MICHAEL JONES / CV SYSTEM</span>
-        <span>OXFORD · UNITED KINGDOM · 2026</span>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

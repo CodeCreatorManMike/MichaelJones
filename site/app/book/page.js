@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { supabase } from '../../lib/supabaseClient';
+import SiteFooter from '../SiteFooter';
 
 const services = {
   'discovery-call': { title: 'FREE DISCOVERY CALL', sub: 'A relaxed, no-obligation 30-minute conversation about your business and what could be improved.' },
@@ -93,10 +94,7 @@ export default function Book() {
         )}
       </section>
 
-      <footer>
-        <span>MICHAEL JONES / CV SYSTEM</span>
-        <span>OXFORD · UNITED KINGDOM · 2026</span>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
