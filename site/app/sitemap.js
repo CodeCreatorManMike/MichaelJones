@@ -1,4 +1,4 @@
-const BASE_URL = 'https://michaeljones.michaeljones-personal-website.workers.dev';
+const BASE_URL = 'https://michael-jones.org';
 
 export default function sitemap() {
   const now = new Date();

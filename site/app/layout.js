@@ -3,7 +3,7 @@ import './nav-fix.css';
 import CalEmbed from './CalEmbed';
 import CookieNotice from './CookieNotice';
 
-const BASE_URL = 'https://michaeljones.michaeljones-personal-website.workers.dev';
+const BASE_URL = 'https://michael-jones.org';
 
 export const metadata = {
   metadataBase: new URL(BASE_URL),
