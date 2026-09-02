@@ -77,7 +77,8 @@ const projectImages=[
  '/projects/bruse_firmware.webp','/projects/computer_in_progress.webp','/projects/computer_in_progress_2.webp',
  '/projects/gravity_github_project.webp','/projects/gravity_hardware_ui_mockup.webp','/projects/gravity_in_progress.webp','/projects/gravity_mockup.webp',
  '/projects/personal_microsite.webp','/projects/personal_microsite_2.webp','/projects/personal_microsite_3.webp',
- '/projects/deskling_os.webp','/projects/deskling_os_2.webp','/projects/deskling_os_3.webp','/projects/readme_github.webp'
+ '/projects/deskling_os.webp','/projects/deskling_os_2.webp','/projects/deskling_os_3.webp','/projects/readme_github.webp',
+ '/projects/nkanda_app_1.webp','/projects/nkanda_app_2.webp','/projects/nkanda_app_3.webp','/projects/nkanda_app_4.webp','/projects/nkanda_app_5.webp','/projects/nkanda_app_6.webp','/projects/nkanda_app_7.webp'
 ];
 
 const rotateWords=['SYSTEM.','APP.','SOLUTION.','PROJECT.','PLATFORM.','PRODUCT.'];
