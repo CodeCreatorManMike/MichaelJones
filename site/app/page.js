@@ -35,21 +35,21 @@ const enterprise=[
 ];
 
 const gtm=[
- ['Clay Central Database','Designed and administered a centralised Clay database powering company/contact enrichment and campaign targeting across the GTM function — improving data accuracy and reuse across teams.'],
- ['Account Plan Generator','Built a Clay-based system that auto-generates structured account plans for target accounts, streamlining ABM research and rep prep time.'],
- ['Lemlist Campaign Operations','Owned the full campaign lifecycle — creation, launch, QC, optimisation — across multiple product lines, pushing reply rate from 0.39% toward a 0.8–1.0% target while holding <1% bounce and >40% opens.'],
- ['Lemlist Python API Tool','Custom Python program against the Lemlist API surfacing LinkedIn engagement and outreach signals for more targeted, data-driven follow-up.'],
- ['Clay ↔ Lemlist Webhooks','Engineered a webhook integration connecting enrichment and outreach platforms, keeping campaign data in sync in real time and cutting manual handoffs.'],
- ['Automated Landing Pages','n8n workflow generating campaign landing pages programmatically, cutting manual page-build time.'],
- ['Agentic Voice Assistant "Amy"','Prototyped an agentic AI voice model for GTM experimentation, exploring conversational AI in outbound engagement.'],
- ['Visitor Qualification','Automation to detect, qualify and trigger outbound follow-up on website visitors — turning anonymous traffic into actionable pipeline signals.'],
- ['Signal-Based Campaigns','Trigger-based outreach keyed to job-change and compliance-deadline signals, improving relevance and timing of outbound touches.'],
- ['Multi-Vertical Campaign Portfolio','Launched and managed outbound campaigns across multiple product lines and verticals, plus persona-based nurture cadences and insurance/legal bottom-of-funnel sequences.'],
- ['TAM & Buying-Group Mapping','Reworked Total Addressable Market data structure and built buying-group mapping with function normalisation, improving segmentation accuracy.'],
- ['Third-Party Data Enrichment','Managed multiple iterations of third-party data enrichment, improving contact and firmographic data quality for outbound targeting.'],
- ['Event & Webinar Lead Pipeline','End-to-end workflow from webinar/event lead extraction through enrichment and cadence launch.'],
- ['Reporting & Enablement Hub','Built and maintained the marketing SharePoint site, analytics reporting and internal newsletters, plus a LinkedIn engagement booklet for leadership visibility.'],
- ['GTM Tooling Academies','Designed induction sessions on Clay, n8n, Lemlist, Salesloft, HTML and Python for onboarding new GTM hires.']
+ ['Clay Central Database','Designed and administered a centralised Clay database powering company/contact enrichment and campaign targeting across the GTM function — improving data accuracy and reuse across teams.','/logos/gtm/clay-central-database.png'],
+ ['Account Plan Generator','Built a Clay-based system that auto-generates structured account plans for target accounts, streamlining ABM research and rep prep time.','/logos/gtm/account-plan-generator.png'],
+ ['Lemlist Campaign Operations','Owned the full campaign lifecycle — creation, launch, QC, optimisation — across multiple product lines, pushing reply rate from 0.39% toward a 0.8–1.0% target while holding <1% bounce and >40% opens.','/logos/gtm/lemlist-campaign-operations.png'],
+ ['Lemlist Python API Tool','Custom Python program against the Lemlist API surfacing LinkedIn engagement and outreach signals for more targeted, data-driven follow-up.','/logos/gtm/lemlist-python-api-tool.png'],
+ ['Clay ↔ Lemlist Webhooks','Engineered a webhook integration connecting enrichment and outreach platforms, keeping campaign data in sync in real time and cutting manual handoffs.','/logos/gtm/clay-lemlist-webhooks.png'],
+ ['Automated Landing Pages','n8n workflow generating campaign landing pages programmatically, cutting manual page-build time.','/logos/gtm/automated-landing-pages.png'],
+ ['Agentic Voice Assistant "Amy"','Prototyped an agentic AI voice model for GTM experimentation, exploring conversational AI in outbound engagement.','/logos/gtm/agentic-voice-assistant-amy.png'],
+ ['Visitor Qualification','Automation to detect, qualify and trigger outbound follow-up on website visitors — turning anonymous traffic into actionable pipeline signals.','/logos/gtm/visitor-qualification.png'],
+ ['Signal-Based Campaigns','Trigger-based outreach keyed to job-change and compliance-deadline signals, improving relevance and timing of outbound touches.','/logos/gtm/signal-based-campaigns.png'],
+ ['Multi-Vertical Campaign Portfolio','Launched and managed outbound campaigns across multiple product lines and verticals, plus persona-based nurture cadences and insurance/legal bottom-of-funnel sequences.','/logos/gtm/multi-vertical-campaign-portfolio.png'],
+ ['TAM & Buying-Group Mapping','Reworked Total Addressable Market data structure and built buying-group mapping with function normalisation, improving segmentation accuracy.','/logos/gtm/tam-buying-group-mapping.png'],
+ ['Third-Party Data Enrichment','Managed multiple iterations of third-party data enrichment, improving contact and firmographic data quality for outbound targeting.','/logos/gtm/third-party-data-enrichment.png'],
+ ['Event & Webinar Lead Pipeline','End-to-end workflow from webinar/event lead extraction through enrichment and cadence launch.','/logos/gtm/event-webinar-lead-pipeline.png'],
+ ['Reporting & Enablement Hub','Built and maintained the marketing SharePoint site, analytics reporting and internal newsletters, plus a LinkedIn engagement booklet for leadership visibility.','/logos/gtm/reporting-enablement-hub.png'],
+ ['GTM Tooling Academies','Designed induction sessions on Clay, n8n, Lemlist, Salesloft, HTML and Python for onboarding new GTM hires.','/logos/gtm/gtm-tooling-academies.png']
 ];
 
 const clients=[
@@ -208,7 +208,7 @@ export default function Page(){
   <section className="ascii-donut-section"><AsciiDonut/></section>
   <section className="section systems reveal-group"><div className="section-head"><span>02 / TECHNICAL ANALYSIS + DEX</span><span>NEXTHINK · POWERSHELL · PYTHON · AZURE</span></div><p className="lead">Enterprise-scale automation, diagnostics, ITSM integrations, AI adoption and more than 100 internal and customer-facing knowledge articles.</p><SystemGrid items={enterprise} className="tech-icons"/></section>
   <section className="ascii-fx-section"><AsciiDiscoBall/></section>
-  <section className="section systems reveal-group"><div className="section-head"><span>03 / GTM ENGINEERING</span><span>AI-FIRST OUTBOUND SYSTEMS</span></div><p className="lead">Built and scaled demand-generation infrastructure using Clay, Lemlist, n8n and Python, supporting 16+ qualified enterprise meetings per month.</p><SystemGrid items={gtm}/></section>
+  <section className="section systems reveal-group"><div className="section-head"><span>03 / GTM ENGINEERING</span><span>AI-FIRST OUTBOUND SYSTEMS</span></div><p className="lead">Built and scaled demand-generation infrastructure using Clay, Lemlist, n8n and Python, supporting 16+ qualified enterprise meetings per month.</p><SystemGrid items={gtm} className="gtm-icons"/></section>
   <section className="ascii-fx-section"><AsciiInvader/></section>
   <section className="section reveal-group"><div className="section-head"><span>04 / CLIENT + PLATFORM BUILDS</span><span>LIVE DIGITAL PRODUCTS</span></div><SystemGrid items={clients}/></section>
   <section id="skills" className="section reveal-group"><div className="section-head"><span>05 / TECHNICAL STACK</span><span>CAPABILITIES.LOG</span></div><div className="skills"><div><h3>BUILD</h3><div className="tag-wrap">{['Python','FastAPI','PostgreSQL / pgvector','Swift / SwiftUI','JavaScript / React','HTML / CSS','WASM','APIs / Webhooks','Web Scraping'].map(x=><span key={x}>{x}</span>)}</div></div><div><h3>AI + AUTOMATION</h3><div className="tag-wrap">{['RAG Systems','Claude / GPT / Groq','Ollama','AI Agent Orchestration','n8n','Clay','Lemlist','Voice AI','sentence-transformers'].map(x=><span key={x}>{x}</span>)}</div></div><div><h3>INFRA + ENTERPRISE</h3><div className="tag-wrap">{['GitLab CI/CD','Docker','Cloudflare Pages','VPS / Homelab','Tailscale / VPN','Nexthink DEX','PowerShell','Azure / Intune','ITSM'].map(x=><span key={x}>{x}</span>)}</div></div><div><h3>PRODUCT + HARDWARE</h3><div className="tag-wrap">{['Product Design','Figma / Wireframing','Brand Systems','ESP32-S3','Sensors / Embedded','PCB Planning','SEO Pipelines','Technical Writing'].map(x=><span key={x}>{x}</span>)}</div></div></div></section>
