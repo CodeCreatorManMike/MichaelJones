@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
 
       <section className="legal-body">
         <h2>Who this covers</h2>
-        <p>This policy explains how michaeljones.dev (this site) collects, uses and protects personal data, in line with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
+        <p>This policy explains how michael-jones.org (this site) collects, uses and protects personal data, in line with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
 
         <h2>What data is collected</h2>
         <p>The only personal data actively collected is what you choose to submit through the booking form on the <a href="/book">/book</a> page: your name, email address, and optionally your company, preferred time and a message describing what you need. This is submitted only when you fill in and send the form yourself &mdash; nothing is collected automatically from visitors browsing the site.</p>
@@ -43,7 +43,10 @@ export default function PrivacyPolicy() {
           <li><strong>Cal.com</strong> &mdash; powers the &ldquo;Book my Cal&rdquo; scheduling widget. Cookies may be set when you open or use the booking calendar.</li>
           <li><strong>Cloudflare</strong> &mdash; this site is hosted on Cloudflare, which may use essential cookies or similar technologies required to serve the site securely.</li>
         </ul>
-        <p>If Google Search Console, Google Ads or analytics tools are added to this site in future, this policy will be updated accordingly and a cookie consent mechanism will govern any non-essential tracking cookies before they are set.</p>
+        <p>If Google Ads or analytics tools (such as Google Analytics) are added to this site in future, this policy will be updated accordingly and the existing cookie consent mechanism will govern any non-essential tracking cookies before they are set.</p>
+
+        <h2>Search engine indexing</h2>
+        <p>This site is registered with Google Search Console, a free tool Google provides to site owners. Search Console does not run any script in your browser and does not set cookies &mdash; it simply lets the site owner see how Google&rsquo;s search crawler indexes and ranks the site&rsquo;s public pages. It has no access to, and does not collect, any personal data about visitors beyond what is already publicly visible on the site.</p>
 
         <h2>Your rights under UK GDPR</h2>
         <p>You have the right to:</p>
