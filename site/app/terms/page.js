@@ -2,7 +2,7 @@ import SiteFooter from '../SiteFooter';
 
 export const metadata = {
   title: 'Terms of Use — Michael Jones',
-  description: 'Terms of use for michaeljones.dev, covering acceptable use, intellectual property and liability.',
+  description: 'Terms of use for michael-jones.org, covering acceptable use, intellectual property and liability.',
 };
 
 export default function Terms() {
@@ -52,7 +52,7 @@ export default function Terms() {
         <p>These terms are governed by the laws of England and Wales.</p>
 
         <h2>Contact</h2>
-        <p>Questions about these terms can be sent to <a href="mailto:michaeljonesincorporated@gmail.com">michaeljonesincorporated@gmail.com</a>.</p>
+        <p>Questions about these terms can be sent to <a href="mailto:michael@michael-jones.org">michael@michael-jones.org</a>.</p>
       </section>
 
       <SiteFooter />

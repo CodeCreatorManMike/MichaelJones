@@ -58,7 +58,7 @@ export default function PrivacyPolicy() {
           <li>Ask for a copy of your data in a portable format</li>
           <li>Complain to the UK Information Commissioner&rsquo;s Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a> if you believe your data has been mishandled</li>
         </ul>
-        <p>To exercise any of these rights, contact <a href="mailto:michaeljonesincorporated@gmail.com">michaeljonesincorporated@gmail.com</a>.</p>
+        <p>To exercise any of these rights, contact <a href="mailto:michael@michael-jones.org">michael@michael-jones.org</a>.</p>
 
         <h2>Children&rsquo;s privacy</h2>
         <p>This site is not directed at children and does not knowingly collect data from anyone under 16.</p>
@@ -67,7 +67,7 @@ export default function PrivacyPolicy() {
         <p>This policy may be updated from time to time as the site changes. The &ldquo;last updated&rdquo; date at the top of this page will reflect the most recent revision.</p>
 
         <h2>Contact</h2>
-        <p>Questions about this policy or your data can be sent to <a href="mailto:michaeljonesincorporated@gmail.com">michaeljonesincorporated@gmail.com</a>.</p>
+        <p>Questions about this policy or your data can be sent to <a href="mailto:michael@michael-jones.org">michael@michael-jones.org</a>.</p>
       </section>
 
       <SiteFooter />
