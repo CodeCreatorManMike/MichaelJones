@@ -84,7 +84,7 @@ const projectImages=[
 const rotateWords=['SYSTEM.','APP.','SOLUTION.','PROJECT.','PLATFORM.','PRODUCT.'];
 const teaserWords=['BUILT?','FIXED?','PLANNED?','AUTOMATED?','LAUNCHED?','DESIGNED?','SOLVED?'];
 
-function Boot(){const[n,setN]=useState(0);useEffect(()=>{const i=setInterval(()=>setN(v=>Math.min(v+3,100)),24);return()=>clearInterval(i)},[]);return <div className={'boot '+(n===100?'done':'')}><div><b>MJ/OS</b><p>LOADING PROFESSIONAL PROFILE...</p><div className="bar"><i style={{width:n+'%'}}/></div><small>{String(n).padStart(3,'0')}% · {n<100?'READING CV DATA':'PROFILE READY'}</small></div></div>}
+function Boot(){const[n,setN]=useState(0);useEffect(()=>{const i=setInterval(()=>setN(v=>{const next=Math.min(v+3,100);if(next>=100)clearInterval(i);return next}),24);return()=>clearInterval(i)},[]);return <div className={'boot '+(n===100?'done':'')}><div><b>MJ/OS</b><p>LOADING PROFESSIONAL PROFILE...</p><div className="bar"><i style={{width:n+'%'}}/></div><small>{String(n).padStart(3,'0')}% · {n<100?'READING CV DATA':'PROFILE READY'}</small></div></div>}
 
 function VideoSwitcher(){
  const[active,setActive]=useState(0);
@@ -151,9 +151,32 @@ function RotatingWord({words=rotateWords}){
 function SystemGrid({items,className=''}){return <div className={'system-grid '+className}>{items.map(([title,copy,icon],i)=><article key={title}>{icon&&<img className="card-icon" src={icon} alt="" />}<span>{String(i+1).padStart(2,'0')}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>}
 
 const CLI_COMMANDS=[
- {id:'help',label:'help',output:<>Available commands — click any below or scroll for more: <b>whoami</b>, <b>ls ~/projects</b>, <b>cat gravity.txt</b>, <b>cat nkanda.txt</b>, <b>cat alcove.txt</b>, <b>cat kit-bin.txt</b>, <b>cat infra.txt</b>, <b>cat learning.txt</b>, <b>open github</b>, <b>clear</b>.</>},
+ {id:'help',label:'help',alias:['h','?'],output:<>
+  <p><b>SYSTEM</b> — help, whoami, about, date, history, clear, sudo</p>
+  <p><b>PROJECTS</b> — ls ~/projects, cat gravity.txt, cat nkanda.txt, cat alcove.txt, cat kit-bin.txt</p>
+  <p><b>WORK</b> — cat vx-one.txt, cat viadex.txt, cat indida.txt, cat recycl-junction.txt</p>
+  <p><b>SYSTEMS</b> — cat infra.txt, cat learning.txt, cat skills.txt</p>
+  <p><b>NAV</b> — cd projects, cd skills, cd experience, cd education, cd contact, cd top</p>
+  <p><b>LINKS</b> — open github, open linkedin, contact</p>
+  <p className="cli-hint">Tab to autocomplete, ↑/↓ for history.</p>
+ </>},
  {id:'whoami',label:'whoami',output:<>Michael Jones — self-taught developer building AI-integrated products end-to-end, from AI hardware devices to mobile apps and client websites. Currently BSc Artificial Intelligence @ Oxford Brookes University, based Oxford / UK.</>},
- {id:'ls',label:'ls ~/projects',output:<div className="cli-list">{[
+ {id:'about',label:'about',alias:['cat about.txt'],output:<div className="cli-about">
+  <p>I&rsquo;m a Junior Technical Analyst at VX-One where I analyse technical data, troubleshoot complex issues across our IT estate, and build automation that improves system and device performance at scale.</p>
+  <p>I started my journey in go-to-market engineering, but naturally gravitated toward the technical side of the work — scripting, systems thinking, automation, and understanding how things actually function under the hood. Transitioning into a technical analyst role was a deliberate step deeper into what genuinely excites me: building, problem-solving, and computer science.</p>
+  <p>At my core, I&rsquo;m a builder. I enjoy taking messy, ambiguous problems and turning them into structured systems — whether through PowerShell/Bash scripting, performance monitoring with tools like Nexthink, or designing automation that removes friction and scales impact.</p>
+  <p><b>Current focus:</b></p>
+  <ul>
+   <li><b>Technical Analysis &amp; Monitoring</b> — investigating device and system performance data to identify patterns, diagnose issues, and implement root-cause solutions.</li>
+   <li><b>Automation &amp; Scripting</b> — writing and deploying PowerShell and Bash scripts to remediate issues, optimise workflows, and reduce manual overhead.</li>
+   <li><b>Troubleshooting &amp; Root Cause Analysis</b> — breaking down OS-level and performance issues methodically to implement long-term, scalable fixes.</li>
+   <li><b>System &amp; Device Optimisation</b> — improving reliability and user experience across environments through data-driven improvements.</li>
+  </ul>
+  <p>Beyond my role, I have a strong personal interest in AI, programming and computer science as a whole — how intelligent systems are designed, how software scales, and how automation can transform both technical operations and business outcomes. I&rsquo;m actively strengthening my foundations in OS fundamentals, Python, C++, Neural Networks, Mathematics, SQL, scripting and AI-driven tooling, with a long-term goal of becoming an AI Engineer / CAIO.</p>
+  <p>Motivated by curiosity and building things that work — but more importantly, things that scale.</p>
+  <p>Passionate about automation, AI, systems optimisation, or just enjoy discussing how technology actually works? <a href="https://www.linkedin.com/in/michael-jones-50a37b261/" target="_blank" rel="noopener noreferrer">Let&rsquo;s connect ↗</a></p>
+ </div>},
+ {id:'ls',label:'ls ~/projects',alias:['ls'],output:<div className="cli-list">{[
    {n:'gravity',href:'https://github.com/CodeCreatorManMike/GRAVITY-OS'},
    {n:'nkanda',href:'https://github.com/CodeCreatorManMike/Nkanda'},
    {n:'alcove',href:'https://github.com/CodeCreatorManMike/Alcove'},
@@ -168,27 +191,118 @@ const CLI_COMMANDS=[
  {id:'nkanda',label:'cat nkanda.txt',output:<>{flagship[1].copy} <a href={flagship[1].links[0].href} target="_blank" rel="noopener noreferrer">repo ↗</a></>},
  {id:'alcove',label:'cat alcove.txt',output:<>{flagship[2].copy} <a href={flagship[2].links[0].href} target="_blank" rel="noopener noreferrer">repo ↗</a></>},
  {id:'kitbin',label:'cat kit-bin.txt',output:<>{flagship[3].copy} <a href="https://kit-bin.com/" target="_blank" rel="noopener noreferrer">visit ↗</a> <a href="https://github.com/CodeCreatorManMike/Kit-Bin" target="_blank" rel="noopener noreferrer">repo ↗</a></>},
+ {id:'vx-one',label:'cat vx-one.txt',output:<>{experience.find(x=>x.company==='VX-ONE').summary}</>},
+ {id:'viadex',label:'cat viadex.txt',output:<>{experience.find(x=>x.company==='VIADEX').summary}</>},
+ {id:'indida',label:'cat indida.txt',alias:['cat indida-consulting.txt'],output:<>{experience.find(x=>x.company==='INDIDA CONSULTING').summary}</>},
+ {id:'recycl-junction',label:'cat recycl-junction.txt',output:<>{experience.find(x=>x.company==='RECYCL JUNCTION').summary}</>},
  {id:'infra',label:'cat infra.txt',output:<>Self-hosted GitLab CE on a home NUC using Docker Compose, with an Ollama-powered (Phi-3-mini) Python code-review service. Extended AI inference through a remote server over Tailscale/SSH running a custom agent and Telegram gateway. CI/CD flows from GitLab straight to Cloudflare Pages.</>},
  {id:'learning',label:'cat learning.txt',output:<>3-month self-directed run through Python Crash Course produced a full Blackjack remake with JSON persistence, a bank simulation app, API/CSV/webhook tools and a Gumtree value-ranking scraper. Currently on the Python roadmap on roadmap.sh, plus linear algebra and calculus ahead of a BSc in Artificial Intelligence.</>},
+ {id:'skills',label:'cat skills.txt',output:<>
+  <p><b>BUILD</b> — Python, FastAPI, PostgreSQL/pgvector, Swift/SwiftUI, JavaScript/React, HTML/CSS, WASM, APIs/Webhooks, Web Scraping</p>
+  <p><b>AI + AUTOMATION</b> — RAG Systems, Claude/GPT/Groq, Ollama, AI Agent Orchestration, n8n, Clay, Lemlist, Voice AI, sentence-transformers</p>
+  <p><b>INFRA + ENTERPRISE</b> — GitLab CI/CD, Docker, Cloudflare Pages, VPS/Homelab, Tailscale/VPN, Nexthink DEX, PowerShell, Azure/Intune, ITSM</p>
+  <p><b>PRODUCT + HARDWARE</b> — Product Design, Figma/Wireframing, Brand Systems, ESP32-S3, Sensors/Embedded, PCB Planning, SEO Pipelines, Technical Writing</p>
+ </>},
+ {id:'contact',label:'contact',output:<>Reach me at <a href="mailto:michael@michael-jones.org" target="_blank" rel="noopener noreferrer">michael@michael-jones.org ↗</a> or on <a href="https://www.linkedin.com/in/michael-jones-50a37b261/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>.</>},
  {id:'github',label:'open github',output:<>Opening <a href="https://github.com/CodeCreatorManMike" target="_blank" rel="noopener noreferrer">github.com/CodeCreatorManMike ↗</a></>},
+ {id:'linkedin',label:'open linkedin',output:<>Opening <a href="https://www.linkedin.com/in/michael-jones-50a37b261/" target="_blank" rel="noopener noreferrer">linkedin.com/in/michael-jones ↗</a></>},
+ {id:'cd-projects',label:'cd projects',cd:'#projects'},
+ {id:'cd-skills',label:'cd skills',cd:'#skills'},
+ {id:'cd-experience',label:'cd experience',cd:'#experience'},
+ {id:'cd-education',label:'cd education',cd:'#education'},
+ {id:'cd-contact',label:'cd contact',cd:'#contact'},
+ {id:'cd-top',label:'cd top',cd:'#top'},
+ {id:'date',label:'date',dynamic:()=><>{new Date().toString()}</>},
+ {id:'sudo',label:'sudo',output:<>Permission denied: you&rsquo;re not root here. Nice try though — try <b>whoami</b>.</>},
  {id:'clear',label:'clear',clear:true}
 ];
 
+const CLI_LOOKUP=(()=>{
+ const m={};
+ CLI_COMMANDS.forEach(c=>{
+  m[c.id]=c;
+  m[c.label.toLowerCase()]=c;
+  (c.alias||[]).forEach(a=>m[a.toLowerCase()]=c);
+ });
+ return m;
+})();
+
 function Terminal(){
- const[log,setLog]=useState([{id:'boot',cmd:null,output:<>Welcome to MJ/OS — a guided walk through the projects, repos and infrastructure above. Click a command below, or start with <b>help</b>.</>}]);
+ const[log,setLog]=useState([{id:'boot',cmd:null,output:<>Welcome to MJ/OS — a guided walk through the projects, repos and infrastructure above. Type a command or click one below, start with <b>help</b>.</>}]);
+ const[input,setInput]=useState('');
+ const[history,setHistory]=useState([]);
+ const histPos=useRef(null);
  const scRef=useRef(null);
+ const inputRef=useRef(null);
+ const wrapRef=useRef(null);
  useEffect(()=>{if(scRef.current)scRef.current.scrollTop=scRef.current.scrollHeight},[log]);
- const run=(c)=>{
+ useEffect(()=>{
+  const el=wrapRef.current;
+  if(!el)return;
+  const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting&&inputRef.current)inputRef.current.focus()})},{threshold:0.4});
+  io.observe(el);
+  return()=>io.disconnect();
+ },[]);
+ const exec=(raw)=>{
+  const trimmed=raw.trim();
+  if(!trimmed)return;
+  setHistory(prev=>[...prev,trimmed]);
+  histPos.current=null;
+  const key=trimmed.toLowerCase();
+  const c=CLI_LOOKUP[key];
+  if(!c){
+   setLog(prev=>[...prev,{id:'err-'+prev.length,cmd:trimmed,output:<>command not found: <b>{trimmed}</b> — try &lsquo;help&rsquo;</>}]);
+   return;
+  }
   if(c.clear){setLog([]);return}
-  setLog(prev=>[...prev,{id:c.id+'-'+prev.length,cmd:c.label,output:c.output}]);
+  if(c.cd){
+   setLog(prev=>[...prev,{id:c.id+'-'+prev.length,cmd:trimmed,output:<>Jumping to <b>{c.cd.replace('#','')||'top'}</b> ↓</>}]);
+   const target=document.querySelector(c.cd);
+   if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+   return;
+  }
+  const output=c.dynamic?c.dynamic():c.output;
+  setLog(prev=>[...prev,{id:c.id+'-'+prev.length,cmd:trimmed,output}]);
  };
- return <div className="terminal cli">
+ const run=(c)=>{exec(c.label)};
+ const onSubmit=(e)=>{
+  e.preventDefault();
+  exec(input);
+  setInput('');
+ };
+ const onKeyDown=(e)=>{
+  if(e.key==='ArrowUp'){
+   e.preventDefault();
+   if(!history.length)return;
+   const pos=histPos.current===null?history.length-1:Math.max(0,histPos.current-1);
+   histPos.current=pos;
+   setInput(history[pos]);
+  }else if(e.key==='ArrowDown'){
+   e.preventDefault();
+   if(histPos.current===null)return;
+   const pos=histPos.current+1;
+   if(pos>=history.length){histPos.current=null;setInput('');return}
+   histPos.current=pos;
+   setInput(history[pos]);
+  }else if(e.key==='Tab'){
+   e.preventDefault();
+   const partial=input.trim().toLowerCase();
+   if(!partial)return;
+   const match=CLI_COMMANDS.find(c=>c.label.toLowerCase().startsWith(partial)||c.id.startsWith(partial));
+   if(match)setInput(match.label);
+  }
+ };
+ return <div className="terminal cli" ref={wrapRef}>
   <div className="terminal-top"><i/><i/><i/><span>michael@systems:~</span></div>
   <div className="cli-log" ref={scRef}>
    {log.map(l=><div key={l.id} className="cli-entry">{l.cmd&&<p className="cli-cmd"><b>$</b> {l.cmd}</p>}<div className="cli-output">{l.output}</div></div>)}
-   <span className="caret">█</span>
+   <form className="cli-prompt" onSubmit={onSubmit}>
+    <span className="cli-prompt-sign">$</span>
+    <input ref={inputRef} value={input} onChange={e=>setInput(e.target.value)} onKeyDown={onKeyDown} autoComplete="off" autoCapitalize="off" spellCheck="false" aria-label="Terminal command input" placeholder="type a command…" />
+    <span className="caret">█</span>
+   </form>
   </div>
-  <div className="cli-commands">{CLI_COMMANDS.map(c=><button key={c.id} onClick={()=>run(c)}>{c.label}</button>)}</div>
+  <div className="cli-commands">{CLI_COMMANDS.filter(c=>!c.cd).map(c=><button key={c.id} onClick={()=>run(c)}>{c.label}</button>)}</div>
  </div>
 }
 
